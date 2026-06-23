@@ -141,7 +141,7 @@ async def handle_answer(callback: CallbackQuery, state: FSMContext):
         await state.set_state(QuizState.result)
         winner_id = get_winner(scores)
         character = CHARACTERS[winner_id]
-        result_text = build_result_text(winner_id, character)
+        result_text = build_result_text(character)
         await callback.message.answer(
             result_text,
             parse_mode="Markdown",
